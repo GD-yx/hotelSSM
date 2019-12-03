@@ -1,0 +1,5 @@
+controller\RoomController.class
+controller\IndexController.class
+controller\ErrorController.class
+advice\ExceptionController.class
+controller\RoomTypeController.class
