@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.CommodityDao">
+
+    <select id="getAll" resultType="com.entity.Commodity">
+        select c.cid ,c.cname,t.cotype,c.cunit,c.cprice
+        from commodity c join commoditytype t
+        on c.coid = t.coid
+        order by c.cid
+    </select>
+
+    <insert id="insert">
+        insert into commodity(cid,cname, coid, cunit, cprice)
+        values (#{cid},#{cname},#{coid},#{cunit},#{cprice})
+    </insert>
+
+    <select id="getById" resultType="com.entity.Commodity">
+         select c.cid ,c.cname,t.cotype,c.cunit,c.cprice
+        from commodity c join commoditytype t
+        on c.coid = t.coid where c.cid = #{id}
+        order by c.cid
+    </select>
+
+    <update id="update">
+        update commodity set cid = #{cid},
+        cname = #{cname},
+        coid = #{coid},
+        cunit = #{cunit},
+        cprice = #{cprice}
+        where cid = #{cid}
+    </update>
+
+    <delete id="delete">
+        delete from commodity where cid = #{id}
+    </delete>
+</mapper>
