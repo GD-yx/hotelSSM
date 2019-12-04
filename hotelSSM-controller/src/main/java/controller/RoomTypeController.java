@@ -47,9 +47,23 @@ public class RoomTypeController {
         return "redirect:/roomtype/list";
     }
 
+    @GetMapping("/edit")
+    public String getById(Integer id,Model model){
+        RoomType roomType = service.getById(id);
+        model.addAttribute("roomtype",roomType);
+        return "/roomtype/edit";
+    }
+    @PostMapping("/update")
+    public String update(@Valid RoomType roomType,BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "/roomtype/edit";
+        }
+        service.update(roomType);
+        return "redirect:/roomtype/list";
+    }
+
     @RequestMapping("/delete")
     public String delete(int id){
-        System.out.println(id);
         service.delete(id);
         return "redirect:/roomtype/list";
     }

@@ -31,4 +31,16 @@ public class RoomTypeServiceImpl implements RoomTypeService {
     public void delete(int id) {
         dao.delete(id);
     }
+
+    @Override
+    public RoomType getById(int id) {
+        return dao.getById(id);
+    }
+
+    @Override
+    public void update(RoomType roomType) {
+        dao.update(roomType);
+    }
+
+
 }

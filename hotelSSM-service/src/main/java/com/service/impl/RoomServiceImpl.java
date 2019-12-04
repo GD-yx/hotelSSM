@@ -25,4 +25,19 @@ public class RoomServiceImpl implements RoomService {
     public void insert(Room room) {
         dao.insert(room);
     }
+
+    @Override
+    public Room getById(int id) {
+        return dao.getById(id);
+    }
+
+    @Override
+    public void update(Room room) {
+        dao.update(room);
+    }
+
+    @Override
+    public void delete(int id) {
+        dao.delete(id);
+    }
 }

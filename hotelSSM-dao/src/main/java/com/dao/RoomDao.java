@@ -11,4 +11,7 @@ import java.util.List;
 public interface RoomDao {
     List<Room> getAll(@Param("pageNum") int pageNum,@Param("pageSize") int pageSize);
     void insert(Room room);
+    Room getById(int id);
+    void update(Room room);
+    void delete(int id);
 }

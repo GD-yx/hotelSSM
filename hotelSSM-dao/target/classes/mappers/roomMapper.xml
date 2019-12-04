@@ -14,4 +14,22 @@
         insert into room(roomid, rtype, status, rprice, remark)
         values (#{roomid},#{rtype},#{status},#{rprice},#{remark})
     </insert>
+
+    <select id="getById" resultType="com.entity.Room">
+         select r.roomid,t.rtname,r.status,r.rprice,r.remark
+             from room r left join roomtype t
+             on r.rtype = t.rtid where r.roomid = #{id}
+             order by r.roomid
+    </select>
+    <update id="update">
+        update room set roomid = #{roomid},
+        rtype = #{rtype},
+        status = #{status},
+        rprice = #{rprice},
+        remark = #{remark}
+          where roomid = #{roomid};
+    </update>
+    <delete id="delete">
+        delete from room where roomid = #{id}
+    </delete>
 </mapper>

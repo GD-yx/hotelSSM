@@ -9,6 +9,9 @@
 <html>
 <head>
     <title>房间类型新增</title>
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
+    <link href="/static/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <form action="/roomtype/insert" method="post">

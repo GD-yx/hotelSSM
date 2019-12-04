@@ -10,7 +10,15 @@
         insert into roomtype(rtid,rtname)
         values (#{rtid},#{rtname})
     </insert>
+    <select id="getById" resultType="com.entity.RoomType">
+        select rtid,rtname from roomtype where rtid = #{id}
+    </select>
+    <update id="update">
+        update roomtype set rtid = #{rtid},
+        rtname = #{rtname} where rtid = #{rtid}
+    </update>
     <delete id="delete">
         delete from roomtype where rtid = #{id}
     </delete>
+
 </mapper>

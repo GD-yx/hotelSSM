@@ -10,4 +10,6 @@ public interface RoomTypeDao {
 
     void insert(RoomType roomType);
     void delete(int id);
+    RoomType getById(int id);
+    void update(RoomType roomType);
 }

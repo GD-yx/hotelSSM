@@ -1,2 +1,4 @@
+com\dao\CommodityDao.class
+com\dao\CommodityTypeDao.class
 com\dao\RoomDao.class
 com\dao\RoomTypeDao.class

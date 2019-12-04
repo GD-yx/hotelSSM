@@ -18,28 +18,32 @@
 </head>
 <body>
 <div>
-    <a href="/room/add">新增</a>
-    <a href="#">修改</a>
-    <a href="#">删除</a>
+    <a href="/room/add">新增</a><%--
+    <a href="/room/edit">修改</a>
+    <a href="#">删除</a>--%>
 </div>
 <table class="table">
     <tr>
-        <th>选择</th>
         <th>房间号</th>
         <th>房间类型</th>
         <th>状态</th>
         <th>价格</th>
         <th>备注</th>
+        <th>操作</th>
     </tr>
     <tbody>
     <c:forEach items="${rooms.list}" var="r">
         <tr>
-            <td><input type="checkbox"/></td>
+
             <td>${r.roomid}</td>
             <td>${r.rtname}</td>
             <td>${r.status}</td>
             <td>${r.rprice}</td>
             <td>${r.remark}</td>
+            <th>
+                <a href="/room/edit?id=${r.roomid}">修改</a>
+                <a href="/room/delete?id=${r.roomid}">删除</a>
+            </th>
         </tr>
     </c:forEach>
     </tbody>

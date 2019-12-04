@@ -19,23 +19,24 @@
 <body>
 <div>
     <a href="/roomtype/add">新增</a>
-    <a href="#">修改</a>
-    <%--<a><input type="button" value="删除" onclick="deleteItems()"/></a>--%>
-    <a  href="#" id="delete">删除</a>
+    <%--<a href="#">修改</a>
+    <a  href="#" id="delete">删除</a>--%>
 </div>
 <table class="table">
     <tr>
-        <th>选择</th>
         <th>主键</th>
         <th>房间类型</th>
+        <th>操作</th>
     </tr>
     <tbody>
     <c:forEach items="${roomtypes.list}" var="t">
         <tr>
-            <td><input type="checkbox" class="cb" rtid="${t.rtid}" /></td>
             <td>${t.rtid}</td>
             <td>${t.rtname}</td>
-
+            <td>
+                <a href="/roomtype/edit?id=${t.rtid}">修改</a>
+                <a href="/roomtype/delete?id=${t.rtid}" >删除</a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>
@@ -51,7 +52,7 @@
     <li><a href="/roomtype/list?pageNum=${roomtypes.pages}">尾页</a></li>
 </ul>
 </body>
-<script>
+<%--<script>
     $("#delete").click(function () {
         var items = $(".cb:checked").attr("rtid");
         $.ajax({
@@ -69,5 +70,5 @@
             $(items[i]).parent(".item").remove();
         }*/
     }
-</script>
+</script>--%>
 </html>

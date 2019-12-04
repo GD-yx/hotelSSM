@@ -18,5 +18,13 @@
 <div>
     <a href="/room/list">房间管理</a>
 </div>
+
+<div>
+    <a href="/commoditytype/list">商品类型管理</a>
+</div>
+
+<div>
+    <a href="/commodity/list">商品管理</a>
+</div>
 </body>
 </html>
