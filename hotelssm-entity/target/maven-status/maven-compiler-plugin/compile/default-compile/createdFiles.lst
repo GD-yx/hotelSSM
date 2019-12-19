@@ -1,0 +1,6 @@
+com\entity\Employee.class
+com\entity\Commodity.class
+com\entity\Room.class
+com\entity\CommodityType.class
+com\entity\Customer.class
+com\entity\RoomType.class

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.RoomDao">
+    <select id="getAll" resultType="com.entity.Room">
+            select r.roomid,t.rtname,r.status,r.rprice,r.remark
+             from room r left join roomtype t
+             on r.rtype = t.rtid
+             order by r.roomid
+    </select>
+
+    <insert id="insert">
+        insert into room(roomid, rtype, status, rprice, remark)
+        values (#{roomid},#{rtype},#{status},#{rprice},#{remark})
+    </insert>
+
+    <select id="getById" resultType="com.entity.Room">
+         select r.roomid,t.rtname,r.status,r.rprice,r.remark
+             from room r left join roomtype t
+             on r.rtype = t.rtid where r.roomid = #{id}
+             order by r.roomid
+    </select>
+    <update id="update">
+        update room set roomid = #{roomid},
+        rtype = #{rtype},
+        status = #{status},
+        rprice = #{rprice},
+        remark = #{remark}
+          where roomid = #{roomid};
+    </update>
+    <delete id="delete">
+        delete from room where roomid = #{roomid}
+    </delete>
+</mapper>

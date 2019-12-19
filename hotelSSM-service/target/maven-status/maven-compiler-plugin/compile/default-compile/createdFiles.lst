@@ -1,8 +1,0 @@
-com\service\RoomTypeService.class
-com\service\impl\RoomTypeServiceImpl.class
-com\service\impl\CommodityServiceImpl.class
-com\service\RoomService.class
-com\service\impl\RoomServiceImpl.class
-com\service\CommodityTypeService.class
-com\service\CommodityService.class
-com\service\impl\CommodityTypeServiceImpl.class

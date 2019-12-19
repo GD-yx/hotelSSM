@@ -2,11 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hotelSSM-controller" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hotelSSM-dao" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hotelSSM-entity" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hotelSSM-interceptor" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hotelSSM-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hotelSSM-util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hotelssm-controller" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hotelssm-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hotelssm-entity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hotelssm-interceptor" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hotelssm-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hotelssm-util" charset="UTF-8" />
   </component>
 </project>

@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hotelSSM-util" />
-        <module name="hotelSSM-entity" />
-        <module name="hotelSSM-interceptor" />
-        <module name="hotelSSM-service" />
-        <module name="hotelSSM-dao" />
+        <module name="hotelssm-entity" />
+        <module name="hotelssm-util" />
+        <module name="hotelssm-interceptor" />
+        <module name="hotelssm-controller" />
         <module name="hotelSSM-controller" />
+        <module name="hotelSSM-dao" />
+        <module name="hotelssm-service" />
+        <module name="hotelssm-dao" />
       </profile>
     </annotationProcessing>
   </component>

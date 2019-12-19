@@ -1,0 +1,6 @@
+com\dao\CommodityDao.class
+com\dao\EmployeeDao.class
+com\dao\CustomerDao.class
+com\dao\CommodityTypeDao.class
+com\dao\RoomDao.class
+com\dao\RoomTypeDao.class

@@ -5,16 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.nf</groupId>
-    <artifactId>hotelSSM-parent</artifactId>
+    <artifactId>hotelssm-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>hotelSSM-dao</module>
-        <module>hotelSSM-service</module>
-        <module>hotelSSM-entity</module>
-        <module>hotelSSM-controller</module>
-        <module>hotelSSM-interceptor</module>
-        <module>hotelSSM-util</module>
+        <module>hotelssm-dao</module>
+        <module>hotelssm-service</module>
+        <module>hotelssm-entity</module>
+        <module>hotelssm-controller</module>
+        <module>hotelssm-interceptor</module>
+        <module>hotelssm-util</module>
     </modules>
 
     <properties>
@@ -87,6 +87,7 @@
                 <artifactId>jstl</artifactId>
                 <version>${jstl.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>

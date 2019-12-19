@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.CommodityTypeDao">
+
+    <resultMap id="commoditytypeResultMap" type="com.entity.CommodityType">
+        <id property="coid" column="coid"></id>
+        <result property="cotype" column="cotype"></result>
+    </resultMap>
+
+    <select id="getAll" resultMap="commoditytypeResultMap">
+        select coid,cotype from commoditytype order by coid
+    </select>
+
+    <select id="searchName" resultMap="commoditytypeResultMap">
+        select coid,cotype from commoditytype
+        where cotype like #{cotype} '%'
+    </select>
+
+    <select id="getById" resultMap="commoditytypeResultMap">
+        select coid,cotype from commoditytype
+         where coid = #{coid}
+         order by coid
+    </select>
+
+    <insert id="insert">
+        insert into commoditytype(coid,cotype) values (
+        #{coid},#{cotype})
+    </insert>
+
+    <update id="update">
+        update commoditytype set
+        coid =#{coid},cotype = #{cotype} where coid =#{coid}
+    </update>
+
+    <delete id="delete">
+        delete from commoditytype where coid = #{id}
+    </delete>
+</mapper>

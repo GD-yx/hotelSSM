@@ -1,7 +1,0 @@
-controller\RoomController.class
-controller\CommodityController.class
-controller\ErrorController.class
-controller\CommodityTypeController.class
-controller\IndexController.class
-advice\ExceptionController.class
-controller\RoomTypeController.class

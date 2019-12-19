@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.CustomerDao">
+    <select id="getAll" resultType="com.entity.Customer">
+        select id,name,gender,phonenumber,address,idcard,checkdate
+        from customer order by id
+    </select>
+
+    <insert id="insert">
+        insert into customer (id,name, gender, phonenumber, address, idcard, checkdate) values (
+        #{id},#{name},#{gender},#{phonenumber},#{address},#{idcard},#{checkdate}
+        );
+    </insert>
+    
+    <select id="getById" resultType="com.entity.Customer">
+       select id,name,gender,phonenumber,address,idcard,checkdate
+        from customer
+        where id = #{id}
+        order by id
+    </select>
+
+    <update id="update">
+        update customer set name = #{name},
+        gender = #{gender},
+        phonenumber = #{phonenumber},
+        address = #{address},
+        idcard = #{address},
+        checkdate = #{checkdate}
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from customer where id = #{id}
+    </delete>
+</mapper>
