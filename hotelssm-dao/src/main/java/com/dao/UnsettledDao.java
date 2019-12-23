@@ -14,6 +14,7 @@ public interface UnsettledDao {
     List<Unsettled> getAll(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     void insert(Unsettled unsettled);
     Unsettled getById(int id);
+    Unsettled getByRoomid(int roomid);
     void update(Unsettled unsettled);
     void delete(int id);
 }

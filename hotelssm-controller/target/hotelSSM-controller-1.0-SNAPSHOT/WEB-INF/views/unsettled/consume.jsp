@@ -15,6 +15,21 @@
     <script src="/static/bootstrap/js/vue.js"></script>
     <link href="/static/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
 </head>
+<style>
+    .modal-body table{
+        width: 500px;
+        height: 200px;
+        text-align: center;
+        border-right:1px solid ;border-bottom:1px solid
+    }
+    .modal-body table td,th{
+        text-align: center;
+        border-left:1px solid ;border-top:1px solid
+    }
+    .modal-body table td input{
+        width: 100px;
+    }
+</style>
 <body>
 
 <div class="container" id="app">
@@ -42,14 +57,14 @@
             </ul>
         </div>
         <div class="col-md-9 column">
-            <div style="margin-top: 20px">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>旅客消费</h1>
-                房间号：<label>${unsettled.roomid}</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                旅客姓名：<label>${unsettled.name}</label><br/><br/>
-                <button href="#" class="btn-info add">添加消费</button>
-                <button href="#" class="btn-info add">返回</button>
-            </div>
             <div class="col-md-10 column" id="content">
+                <div style="margin-top: 20px">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>旅客消费</h1>
+                    房间号：<label>${unsettled.roomid}</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    旅客姓名：<label>${unsettled.name}</label><br/><br/>
+                    <button href="#" class="btn-info add">添加消费</button>
+                    <button href="#" class="btn-info fh">返回</button>
+                </div>
                 <table class="table table-bordered table-hover" style="width: 1000px" text-align="center">
                     <thead>
                     <tr>
@@ -89,12 +104,15 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
-                <h4 class="modal-title" id="myModalLabel">
+                <h4 style="margin-left: 200px" class="modal-title" id="myModalLabel">添加消费</h4>
 
-                </h4>
             </div>
             <div class="modal-body">
-                <table>
+               <h4 ></h4>
+                <form class="form-horizontal" role="form">
+                    <%--<input type="text"  class="id" id="id" name="id" />--%>
+                <table class="smalltable">
+
                     <thead>
                     <tr>
                         <th>商品名称</th>
@@ -109,72 +127,15 @@
 
                     </tbody>
                 </table>
-               <%-- <form class="form-horizontal" role="form">
+                </form>
+                <a class="pageNumber2" id="first2"  href="#" >首页</a>
+                <a class="pageNumber2" id="prev2" href="#">上一页</a>
+                <a class="pageNumber2" id="next2"href="#">下一页</a>
+                <a class="pageNumber2" id="last2" href="#">尾页</a>
 
+                <ul id="navigatepageNums2">
 
-                    <div class="form-group">
-                        <label for="id" class="col-sm-2 control-label">编号</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id" name="id" v-model = "id"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="roomid" class="col-sm-2 control-label">房间号</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="roomid" name="roomid" v-model = "roomid"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="roomtype" class="col-sm-2 control-label">房间类型</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="roomtype" name="roomtype" v-model = "roomtype"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">旅客姓名</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="name" name="name" v-model = "name"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="checkdate" class="col-sm-2 control-label">入住日期</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="checkdate" name="checkdate" v-model = "checkdate"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="settledtime" class="col-sm-2 control-label">结账时间</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="settledtime" name="settledtime" v-model = "settledtime"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="rprice" class="col-sm-2 control-label">住宿费</label>
-                        <div class="col-sm-10">
-                            <input type="rprice" class="form-control" id="rprice" name="rprice" v-model = "idcard"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="cprice" class="col-sm-2 control-label">其他消费</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="cprice" name="cprice" v-model = "cprice"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="consume" class="col-sm-2 control-label">结账金额</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="consume" name="consume" v-model = "consume"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">取消
-                            </button>
-                            <button type="button" id="save" class="btn btn-default">结账</button>
-                        </div>
-                    </div>
-                </form>--%>
+                </ul>
             </div>
 
         </div>
@@ -190,29 +151,34 @@
 
         var page = {};
         var pageSize=4;
-        //查询所有
-        function getAll(pageNum,pageSize){
+        var roomid = ${unsettled.roomid};
+        var name = "${unsettled.name}";
+
+        //查询该顾客所有的消费
+        function getAll2(pageNum,pageSize,roomid){
             $.ajax({
-                url:"/commodity/list",
+                url:"/consume/getByRoomId",
                 type:"post",
                 dataType:"json",
-                data:{"pageNum":pageNum,"pageSize":pageSize},
+                data:{"pageNum":pageNum,"pageSize":pageSize,"roomid":roomid},
                 success:function (pageInfo) {
-                    var commodities = "";
-                    $.each(pageInfo.list,function (index,commodity) {
-                        commodities+="<tr>";
-                        //commodities+="<td>"+commodity.cid+"</td>";
-                        commodities+="<td>"+commodity.cname+"</td>";
-                        commodities+="<td>"+commodity.cunit+"</td>";
-                        commodities+="<td>"+commodity.cprice+"</td>";
-                        commodities+="<td>"+commodity.cprice+"</td>";
-                        commodities+="<td>"+commodity.cprice+"</td>";
-                        commodities+="<td>"+new Date()+"</td>";
-                        commodities+="<td><button  cid="+commodity.cid+"  class='delete btn btn-danger' >删除</button>";
-                        commodities+="<button  cid="+commodity.cid+" cname="+commodity.cname+" coid="+commodity.coid+" cunit="+commodity.cunit+" cprice="+commodity.cprice+" class='update btn btn-info' >编辑</button></td>";
-                        commodities+="</tr>";
+                    var consumes = "";
+                    $.each(pageInfo.list,function (index,consume) {
+                        //var c = index+1;
+                        consumes+="<tr>";
+                        //consumes+="<td>"+consume.id+"</td>";
+                        //consumes+="<td>"+consume.roomid+"</td>";
+                        //consumes+="<td>"+consume.name+"</td>";
+                        consumes+="<td>"+consume.cname+"</td>";
+                        consumes+="<td>"+consume.cunit+"</td>";
+                        consumes+="<td>"+consume.cprice+"</td>";
+                        consumes+="<td>"+consume.number+"</td>";
+                        consumes+="<td>"+consume.money+"</td>";
+                        consumes+="<td>"+consume.consumedate+"</td>";
+                        consumes+="<td><button  id="+consume.id+"  class='delete btn btn-danger' >删除</button>";
+                        consumes+="</tr>";
 
-                    })//commodity
+                    })//consumes
 
                     //分页
                     $("#navigatepageNums").empty();
@@ -231,74 +197,100 @@
                         getAll($(this).data("value"),pageSize);
                     })
                     page=pageInfo;
-                    $("#tbody").html(commodities);
+                    $("#tbody").html(consumes);
 
                     //删除
                     $(".delete").on('click',function (e) {
                         e.preventDefault();
                         if(confirm("确定删除？")){
-                            $.post("/commodity/delete",{cid:$(this).attr("cid")},function(){
+                            $.post("/consume/delete",{id:$(this).attr("id")},function(){
                                 $("tbody").empty();
-                                getAll(1,pageSize);
+                                getAll2(1,pageSize,roomid);
                             });
                         }
                     })
 
-                    //修改
-                    $(".update").on('click',function () {
-                        $("#save").data("op","update");
-                        $("#cid").val($(this).attr("cid"));
-                        $("#cname").val($(this).attr("cname"));
-                        $("#coid").val($(this).attr("coid"));
-                        $("#cunit").val($(this).attr("cunit"));
-                        $("#cprice").val($(this).attr("cprice"));
-                        $("#cid").prop("disabled","disabled");
-                        $("#myModal").modal('show');
-                    });
+                }
+            })
 
-                    $("#save").click(function(){
-                        var op = $("#save").data("op");
-                        if(op != "update"){
-                            return;
-                        }
-                        $("#myModal").modal('hide');
-                        var obj = {cid:$("#cid").val(),cname:$("#cname").val(),
-                            coid:$("#coid").val(),cunit:$("#cunit").val(),cprice:$("#cprice").val()};
-                        console.log(obj);
-                        $.post("/commodity/update",obj,function(){
-                            $("tbody").empty();
-                            getAll(1,pageSize);
-                        });
+        }
+        getAll2(1,pageSize,roomid);
 
-                    });
+        //模态框里查询所有商品
+        function getAll(pageNum,pageSize){
+            $.ajax({
+                url:"/commodity/list",
+                type:"post",
+                dataType:"json",
+                data:{"pageNum":pageNum,"pageSize":pageSize},
+                success:function (pageInfo) {
+                    var commodities = "";
+                    $.each(pageInfo.list,function (index,commodity) {
+                        commodities+="<tr>";
+                        //commodities+="<td>"+commodity.f+"</td>";
+                        commodities+="<td>"+commodity.cname+"</td>";
+                        commodities+="<td>"+commodity.cotype+"</td>";
+                        commodities+="<td>"+commodity.cunit+"</td>";
+                        commodities+="<td>"+commodity.cprice+"</td>";
+                        commodities+="<td><input type='text' name='number' class='number' id='number'/></td>";
+                        commodities+="<td><button  roomid="+roomid+" name="+name+" " +
+                        "cname="+commodity.cname+" cunit="+commodity.cunit+" cprice="+commodity.cprice+" class='yes btn btn-info' >确定</button></td>";
+                        commodities+="</tr>";
+
+                })//commodity
+
+                    //分页
+                    $("#navigatepageNums2").empty();
+                    $.each(pageInfo.navigatepageNums,function (index,num) {
+                        var pageNumbers=$("<li class='pageNumber2'>"+num+"</li>");
+                        pageNumbers.appendTo("#navigatepageNums2");
+                        pageNumbers.data("value",num);
+                    })//number
+                    $("#first2").data("value",1);
+                    $("#prev2").data("value",pageInfo.prePage);
+                    $("#next2").data("value",pageInfo.nextPage);
+                    $("#last2").data("value",pageInfo.pages);
+
+                    //页码
+                    $(".pageNumber2").on("click",function () {
+                        getAll($(this).data("value"),pageSize);
+                    })
+                    page=pageInfo;
+                    $("#modeltabletbody").html(commodities);
+
+                    //删除
+                   $(".yes").click(function () {
+                       //获得数量框里面的数字
+                      /* var consumeroomid = $(this).attr("roomid");
+                       var consumename = $(this).attr("name");
+                       var consumecname = $(this).attr("cname");
+                       var consumecunit = $(this).attr("cunit");
+                       var consumecprice = $(this).attr("cprice");
+                       var consumenumber = $(this).parent().parent().find(".number").val();
+                       var money = consumecprice * consumenumber;*/
+                       //alert("房间号："+consumeroomid+"  姓名："+consumename+"   商品名称："+consumecname+"   单位："+consumecunit+"   单价："+consumecprice+"   数量："+consumenumber+"   总计："+money);
+                       $("#myModal").modal('hide');
+                       var obj = {roomid:$(this).attr("roomid"),name:$(this).attr("name"),cname:$(this).attr("cname"),
+                           cunit:$(this).attr("cunit"),cprice:$(this).attr("cprice"),number:$(this).parent().parent().find(".number").val(),
+                           money:$(this).attr("cprice")*$(this).parent().parent().find(".number").val()};
+                       console.log(obj);
+                       $.post("/consume/insert",obj,function(){
+                           $("#tbody").empty();
+                           getAll2(1,pageSize,roomid);
+                       });
+                   })
 
                 }
             })
 
         }
 
-
         //添加
         $("#content").on("click",".add",function(){
             $("#myModal").modal('show');
             getAll(1,pageSize);
-
-
         });
-        $("#save").click(function(){
-            var op = $("#save").data("op");
-            if(op != "insert"){
-                return;
-            }
-            $("#myModal").modal('hide');
-            var obj = {cid:$("#cid").val(),cname:$("#cname").val(),
-                coid:$("#coid").val(),cunit:$("#cunit").val(),cprice:$("#cprice").val()};
-            console.log(obj);
-            $.post("/commodity/insert",obj,function(){
-                $("tbody").empty();
-                getAll(1,pageSize);
-            });
-        });
+
     });
 
 </script>

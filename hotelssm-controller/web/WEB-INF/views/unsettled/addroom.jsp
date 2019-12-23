@@ -61,10 +61,11 @@
                     <input type="button" name="name" hidden="hidden"/>
                     房价：&nbsp;&nbsp;&nbsp;
                     <input type="text" class="consume" name="consume"/>&nbsp;&nbsp;
-                    登记时间：
-                    <input type="text" name="checkdate"/><br/><br/>
+                   <%-- 登记时间：
+                    <input type="text" name="checkdate"/><br/><br/>--%>
                     住店天数：
-                    <input type="text" name="day"/>&nbsp;&nbsp;
+                    <input type="text" class="money" name="money" hidden="hidden"/>&nbsp;&nbsp;
+                    <input type="text" class="day" name="day"/>&nbsp;&nbsp;
                     支付方式：
                     <select name="pay">
                         <option value="现金">现金</option>
@@ -98,6 +99,11 @@
 </body>
 <script type="text/javascript">
     $(function () {
+        //$(".money").val(moneys);
+        var days = $(".day").val();
+        var consumes = $(".consume").val();
+        var moneys = days*consumes;
+        alert(moneys);
         $(".divroom").click(function () {
             var status = $(this).find("li").eq(2).text();
             if(status == "空房"){
@@ -111,6 +117,7 @@
                 $(".roomtype").val("");
                 $(".consume").val("");
             }
+
 
         })
 

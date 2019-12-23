@@ -50,17 +50,8 @@ public class UnsettledController {
         return unsettledPageInfo;
     }
 
-    /**查询已结账*/
-    @PostMapping("/list2")
-    @ResponseBody
-    public PageInfo<Settled> list2 (@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
-                                     @RequestParam(value = "pageSize",defaultValue = "4") int pageSize){
-        List<Settled> settleds = settledService.getAll(pageNum,pageSize);
-        PageInfo<Settled> settledPageInfo = new PageInfo<>(settleds,3);
-        return settledPageInfo;
-    }
 
-    /**对某行进行结账操作*/
+    /**对某行未结账进行结账操作*/
     @RequestMapping("/delete")
     @ResponseBody
     public ResponseVo delete(@Valid Settled settled,
@@ -70,14 +61,6 @@ public class UnsettledController {
         }
         settledService.insert(settled);
         service.delete(id);
-        return ResponseVo.newBuilder().code("200").message("删除成功！").build();
-    }
-
-    /**删除已结账的客户信息*/
-    @RequestMapping("/delete2")
-    @ResponseBody
-    public ResponseVo delete2(int id){
-        settledService.delete(id);
         return ResponseVo.newBuilder().code("200").message("删除成功！").build();
     }
 
@@ -123,7 +106,7 @@ public class UnsettledController {
         return modelAndView;
     }*/
 
-    /**登记*/
+    /**登记顾客信息，入住*/
     @GetMapping("/register")
     @ResponseBody
     public ModelAndView register(int id){
@@ -133,8 +116,6 @@ public class UnsettledController {
         modelAndView.setViewName("/unsettled/register");
         return modelAndView;
     }
-
-
 
     @PostMapping("/registration")
     @ResponseBody

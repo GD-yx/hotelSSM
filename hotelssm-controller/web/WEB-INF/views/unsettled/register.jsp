@@ -76,8 +76,8 @@
                     <input type="text" name="idcard"/>&nbsp;&nbsp;
                     房价：
                     <input type="text" name="consume" value="${unsetteld.consume}"/><br/><br/>
-                    登记时间：
-                    <input type="text" name="checkdate"/>&nbsp;&nbsp;
+                   <%-- 登记时间：
+                    <input type="text" name="checkdate"/>&nbsp;&nbsp;--%>
                     住店天数：
                     <input type="text" name="day"/><br/><br/>
                     <input type="text" name="roomtype" value="${unsetteld.roomtype}" hidden="hidden"/>

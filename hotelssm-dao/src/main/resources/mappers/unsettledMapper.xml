@@ -14,22 +14,27 @@
 
     <insert id="insert">
         insert into unsettled(roomid,roomtype,name,checkdate,consume)
-        values (#{roomid},#{roomtype},#{name},#{checkdate},#{consume})
+        values (#{roomid},#{roomtype},#{name},now(),#{consume})
     </insert>
 
     <update id="update">
         update unsettled set roomid =  #{roomid},
         roomtype = #{roomtype},
         name = #{name},
-        checkdate = #{checkdate},
+        checkdate = now(),
         consume = #{consume}
         where id =  #{id};
     </update>
+
+    <select id="getByRoomid" resultType="com.entity.Unsettled">
+        select id,roomid,roomtype,name,checkdate,consume
+        from unsettled where roomid = #{roomid}
+        order by id
+    </select>
 
     <select id="getById" resultType="com.entity.Unsettled">
         select id,roomid,roomtype,name,checkdate,consume
         from unsettled where id = #{id}
         order by id
     </select>
-
 </mapper>

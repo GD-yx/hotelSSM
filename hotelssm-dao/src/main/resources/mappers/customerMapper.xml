@@ -10,7 +10,7 @@
 
     <insert id="insert">
         insert into customer (id,name, gender, phonenumber, address, idcard, checkdate) values (
-        #{id},#{name},#{gender},#{phonenumber},#{address},#{idcard},#{checkdate}
+        #{id},#{name},#{gender},#{phonenumber},#{address},#{idcard},now()
         );
     </insert>
     

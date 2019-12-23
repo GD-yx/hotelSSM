@@ -48,6 +48,10 @@
                     <a href="/unsettled/index"><i class="icon icon-archive"></i>入住信息</a>
                     <a href="/customer/index"><i class="icon icon-archive"></i>客户信息</a>
                 </li>
+                <li> <i class="icon icon-archive"></i>财务管理
+                    <a href="/consume/index"><i class="icon icon-archive"></i>顾客消费记录</a>
+                    <a href="#"><i class="icon icon-archive"></i>财务统计</a>
+                </li>
             </ul>
         </div>
         <div class="col-md-9 column">
@@ -229,7 +233,7 @@
                         unsettleds+="<td>"+unsettled.checkdate+"</td>";
                         unsettleds+="<td>"+unsettled.consume+"</td>";
                         unsettleds+="<td><a href='/unsettled/register?id="+unsettled.id+"'><button class='update btn btn-info' >登记</button></a>&nbsp;&nbsp;&nbsp;";
-                        unsettleds+="<a href='/unsettled/consume?id="+unsettled.id+"'><button class='insert btn btn-primary' href='/unsettled/consume' >消费</button></a>&nbsp;&nbsp;&nbsp;";
+                        unsettleds+="<a href='/unsettled/consume?id="+unsettled.id+"'><button class='insert btn btn-primary'  >消费</button></a>&nbsp;&nbsp;&nbsp;";
                         unsettleds+="<button id="+unsettled.id+" name="+unsettled.name+" roomid="+unsettled.roomid+" " +
                             "roomtype="+unsettled.roomtype+" checkdate="+unsettled.checkdate+" consume="+unsettled.consume+" " +
                             "class='delete btn btn-danger' >结账</button></td>";
@@ -266,9 +270,6 @@
                         $("#name").val($(this).attr("name"));
                         $("#roomtype").val($(this).attr("roomtype"));
                         $("#checkdate").val($(this).attr("checkdate"));
-                       /* var date=new Date();
-                        var sdf=new SimpleDateFormat("yyyy-MM-dd");
-                        var sDate=sdf.format(date);*/
                        $("#settledtime").val();
                         $("#consume").val($(this).attr("consume"));
                         $("#rprice").val("");
@@ -294,46 +295,13 @@
                         $.post("/unsettled/consume");
                     })
 
-               /*     //修改
-                    $(".update").on('click',function () {
-                        $("#myModal").modal('show');
-                        //$("#id").prop("disabled","disabled");
-                        $("#save").data("op","update");
-                        $("#id").val($(this).attr("id"));
-                        $("#name").val($(this).attr("name"));
-                        $("#gender").val($(this).attr("gender"));
-                        $("#birthday").val($(this).attr("birthday"));
-                        $("#idcard").val($(this).attr("idcard"));
-                        $("#email").val($(this).attr("email"));
-                        $("#phonenumber").val($(this).attr("phonenumber"));
-                        $("#address").val($(this).attr("address"));
-                        $("#position").val($(this).attr("position"));
-
-
-                    });
-
-                    $("#save").click(function(){
-                        var op = $("#save").data("op");
-                        if(op != "update"){
-                            return;
-                        }
-                        $("#myModal").modal('hide');
-                        var obj = {id:$("#id").val(),name:$("#name").val(),gender:$("#gender").val(),
-                            birthday:$("#birthday").val(),idcard:$("#idcard").val(),email:$("#email").val(),
-                            phonenumber:$("#phonenumber").val(),address:$("#address").val(),position:$("#position").val()};
-                        console.log(obj);
-                        $.post("/employee/update",obj,function(){
-                            $("tbody").empty();
-                            getAll(1,pageSize);
-                        });
-                    });*/
                 }
             })
         }
 
         function getAll2(pageNum,pageSize){
             $.ajax({
-                url:"/unsettled/list2",
+                url:"/settled/list",
                 type:"post",
                 dataType:"json",
                 data:{"pageNum":pageNum,"pageSize":pageSize},
@@ -374,7 +342,7 @@
                     //删除
                     $(".delete").on('click',function () {
                         if(confirm("确定删除？")){
-                            $.post("/unsettled/delete2",{id:$(this).attr("id")},function(){
+                            $.post("/settled/delete",{id:$(this).attr("id")},function(){
                                 $("tbody").empty();
                                 getAll2(1,pageSize);
                             });

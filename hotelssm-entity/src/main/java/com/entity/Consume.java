@@ -1,25 +1,26 @@
 package com.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.istack.internal.Nullable;
 import lombok.Data;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * @author 南八
  */
 @Data
-public class Unsettled {
+public class Consume {
+
+
     private Integer id;
     private Integer roomid;
-    private String roomtype;
     private String name;
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date checkdate;
-
-    private Double consume;
+    private String cname;
+    private String cunit;
+    private Double cprice;
+    private Integer number;
     private Double money;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date consumedate;
 }

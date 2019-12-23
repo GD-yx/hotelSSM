@@ -48,7 +48,10 @@
                     <a href="/unsettled/index"><i class="icon icon-archive"></i>入住信息</a>
                     <a href="/customer/index"><i class="icon icon-archive"></i>客户信息</a>
                 </li>
-
+                <li> <i class="icon icon-archive"></i>财务管理
+                    <a href="/consume/index"><i class="icon icon-archive"></i>顾客消费记录</a>
+                    <a href="#"><i class="icon icon-archive"></i>财务统计</a>
+                </li>
             </ul>
         </div>
         <div class="col-md-9 column">

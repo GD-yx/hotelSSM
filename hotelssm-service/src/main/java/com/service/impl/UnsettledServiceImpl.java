@@ -34,6 +34,12 @@ public class UnsettledServiceImpl implements UnsettledService {
     }
 
     @Override
+    public Unsettled getByRoomid(int roomid) {
+        return dao.getByRoomid(roomid);
+    }
+
+
+    @Override
     public void update(Unsettled unsettled) {
         dao.update(unsettled);
     }
