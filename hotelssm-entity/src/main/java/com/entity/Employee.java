@@ -15,7 +15,7 @@ public class Employee {
     private String name;
     private String gender;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date birthday;
     private String idcard;
     private String email;

@@ -75,8 +75,17 @@ public class ConsumeController {
                                 @RequestParam(value = "pageSize",defaultValue = "4") int pageSize,
                                 @RequestParam(value = "roomid") int roomid) {
         List<Consume> consumes = service.getByRoomId(pageNum, pageSize, roomid);
-        System.out.println(consumes);
-        System.out.println(roomid);
+        PageInfo<Consume> consumePageInfo = new PageInfo<>(consumes,3);
+        return consumePageInfo;
+    }
+
+
+    @RequestMapping("/getByName")
+    @ResponseBody
+    public PageInfo getByRoomId(@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
+                                @RequestParam(value = "pageSize",defaultValue = "4") int pageSize,
+                                @RequestParam(value = "name") String name) {
+        List<Consume> consumes = service.getByName(pageNum, pageSize, name);
         PageInfo<Consume> consumePageInfo = new PageInfo<>(consumes,3);
         return consumePageInfo;
     }

@@ -54,4 +54,4 @@
         </property>
     </bean>
     <mybatis:scan base-package="com.dao"/>
-</beans>
+    </beans>

@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import vo.ResponseVo;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/commoditytype")
+//@CrossOrigin
 public class CommodityTypeController {
 
     @Autowired
@@ -36,6 +39,25 @@ public class CommodityTypeController {
         PageInfo<CommodityType> commodityTypePageInfo = new PageInfo<>(commodityTypes,3);
         return commodityTypePageInfo;
     }
+
+
+    //会话跨域
+    /*@RequestMapping("/sw")
+    @ResponseBody
+    @CrossOrigin(allowCredentials = "true")
+    public ResponseVo writeSession(HttpSession session){
+        session.setAttribute("s", "111111");
+        return new ResponseVo("200", "ok", "sesssion write ok");
+    }
+
+    @RequestMapping("/sr")
+    @ResponseBody
+    @CrossOrigin(allowCredentials = "true")
+    public ResponseVo readSession(HttpSession session){
+        String sessionData = session.getAttribute("s").toString();
+        return new ResponseVo("200","ok",sessionData);
+    }
+*/
 
 
     @RequestMapping("/insert")

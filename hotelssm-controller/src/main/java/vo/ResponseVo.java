@@ -1,16 +1,22 @@
 package vo;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author 南八
  */
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class ResponseVo {
     private Object data;
     private String message;
     private String code;
 
-    private ResponseVo(Builder builder) {
+    public ResponseVo(Builder builder) {
         data = builder.data;
         message = builder.message;
         code = builder.code;

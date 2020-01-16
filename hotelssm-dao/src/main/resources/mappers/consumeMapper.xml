@@ -9,14 +9,25 @@
     </select>
 
     <insert id="insert">
-        insert into consume(id,roomid,name,cname,cunit,cprice,number,money,consumedate)
-        values(#{id},#{roomid},#{name},#{cname},#{cunit},#{cprice},#{number},#{money},now())
+        insert into consume(roomid,name,cname,cunit,cprice,number,money,consumedate)
+        values(#{roomid},#{name},#{cname},#{cunit},#{cprice},#{number},#{money},now())
     </insert>
 
     <select id="getByRoomId" resultType="com.entity.Consume">
         select id,roomid,name,cname,cunit,cprice,number,money,consumedate
         from consume where roomid = #{roomid}
         order by id
+    </select>
+
+    <select id="getByName" resultType="com.entity.Consume">
+        select id,roomid,name,cname,cunit,cprice,number,money,consumedate
+        from consume where name = #{name}
+        order by id
+    </select>
+
+    <select id="getById" resultType="com.entity.Consume">
+        select id,roomid,name,cname,cunit,cprice,number,money,consumedate
+        from consume where id = #{id}
     </select>
 
     <delete id="delete">

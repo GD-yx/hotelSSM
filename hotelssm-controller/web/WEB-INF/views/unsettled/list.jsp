@@ -32,25 +32,88 @@
     <div class="row clearfix">
         <div class="col-md-2 column">
             <ul class="nav nav-pills nav-stacked">
-                <li> <i class="icon icon-archive"></i>商品
-                    <a href="/commodity/index"><i class="icon icon-archive"></i>商品管理</a>
-                    <a href="/commoditytype/index"><i class="icon icon-archive"></i>类型管理</a>
+                <li class="sub-menu  conceal">
+                    <a class="" href="#">
+                        <span>商品管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class=" conceal">
+                            <a href="/commodity/index">商品信息</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="/commoditytype/index">类型管理</a>
+                        </li>
+                    </ul>
                 </li>
-                <li> <i class="icon icon-archive"></i>房间
-                    <a href="/room/index"><i class="icon icon-archive"></i>房间管理</a>
-                    <a href="/roomtype/index"><i class="icon icon-archive"></i>类型管理</a>
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>房间管理</span> <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class=" conceal">
+                            <a class="" href="/room/index">房间信息</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="/roomtype/index">类型管理</a>
+                        </li>
+
+                    </ul>
                 </li>
-                <li> <i class="icon icon-archive"></i>员工
-                    <a href="/employee/index"><i class="icon icon-archive"></i>员工管理</a>
-                    <a href="#"><i class="icon icon-archive"></i>权限管理</a>
+
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>员工管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="conceal">
+                            <a class="" href="/employee/index">员工信息</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="#">权限管理</a>
+                        </li>
+                    </ul>
                 </li>
-                <li> <i class="icon icon-archive"></i>客户
-                    <a href="/unsettled/index"><i class="icon icon-archive"></i>入住信息</a>
-                    <a href="/customer/index"><i class="icon icon-archive"></i>客户信息</a>
+
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>客户管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="conceal">
+                            <a class="" href="/unsettled/index">入住信息</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="/customer/index">客户信息</a>
+                        </li>
+                    </ul>
                 </li>
-                <li> <i class="icon icon-archive"></i>财务管理
-                    <a href="/consume/index"><i class="icon icon-archive"></i>顾客消费记录</a>
-                    <a href="#"><i class="icon icon-archive"></i>财务统计</a>
+
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>财务管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="conceal">
+                            <a class="" href="/consume/index">顾客消费记录</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="#">财务统计</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>基础资料管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="conceal">
+                            <a class="" href="/admin/user/list">用户管理</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="/admin/role/list">角色管理</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -75,6 +138,7 @@
                         <option value="未结账" selected>未结账</option>
                     </select>
                     <a href="/unsettled/addroom"><button href="#" class="btn-info add">安排房间</button></a>
+                    <label>${consume1.money}</label>
                 </div>
             <div class="col-md-10 column" id="content">
                 <table class="table table-bordered table-hover" style="width: 1000px" text-align="center">
@@ -199,12 +263,10 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
 </body>
-<%--<script src="/static/bootstrap/js/commoditytype/list.js"></script>--%>
 
 <script type="text/javascript">
     $(function(){
@@ -215,7 +277,7 @@
 
         var page = {};
         var pageSize=4;
-        //查询所有
+        //查询未结账
         function getAll(pageNum,pageSize){
             $.ajax({
                 url:"/unsettled/list",
@@ -232,8 +294,8 @@
                         unsettleds+="<td>"+unsettled.name+"</td>";
                         unsettleds+="<td>"+unsettled.checkdate+"</td>";
                         unsettleds+="<td>"+unsettled.consume+"</td>";
-                        unsettleds+="<td><a href='/unsettled/register?id="+unsettled.id+"'><button class='update btn btn-info' >登记</button></a>&nbsp;&nbsp;&nbsp;";
-                        unsettleds+="<a href='/unsettled/consume?id="+unsettled.id+"'><button class='insert btn btn-primary'  >消费</button></a>&nbsp;&nbsp;&nbsp;";
+                        unsettleds+="<td><a href='/unsettled/consume?name="+unsettled.name+"'><button name="+unsettled.name+" class='update btn btn-info' >消费</button></a>&nbsp;&nbsp;&nbsp;";
+                        unsettleds+="<a href='/unsettled/register?id="+unsettled.id+"'><button  class='insert btn btn-primary'>登记</button></a>&nbsp;&nbsp;&nbsp;";
                         unsettleds+="<button id="+unsettled.id+" name="+unsettled.name+" roomid="+unsettled.roomid+" " +
                             "roomtype="+unsettled.roomtype+" checkdate="+unsettled.checkdate+" consume="+unsettled.consume+" " +
                             "class='delete btn btn-danger' >结账</button></td>";
@@ -293,12 +355,20 @@
 
                     $(".insert").on('click',function () {
                         $.post("/unsettled/consume");
+                       /* var names = $(this).attr("name");
+                        if(names != null){
+                            alert("dfsfafd");
+
+                        }else {
+                            alert("请sfd");
+                        }*/
                     })
 
                 }
             })
         }
 
+        //查询已结账
         function getAll2(pageNum,pageSize){
             $.ajax({
                 url:"/settled/list",

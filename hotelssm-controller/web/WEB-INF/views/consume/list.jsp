@@ -32,25 +32,88 @@
     <div class="row clearfix">
         <div class="col-md-2 column">
             <ul class="nav nav-pills nav-stacked">
-                <li> <i class="icon icon-archive"></i>商品
-                    <a href="/commodity/index"><i class="icon icon-archive"></i>商品管理</a>
-                    <a href="/commoditytype/index"><i class="icon icon-archive"></i>类型管理</a>
+                <li class="sub-menu  conceal">
+                    <a class="" href="#">
+                        <span>商品管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class=" conceal">
+                            <a href="/commodity/index">商品信息</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="/commoditytype/index">类型管理</a>
+                        </li>
+                    </ul>
                 </li>
-                <li> <i class="icon icon-archive"></i>房间
-                    <a href="/room/index"><i class="icon icon-archive"></i>房间管理</a>
-                    <a href="/roomtype/index"><i class="icon icon-archive"></i>类型管理</a>
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>房间管理</span> <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class=" conceal">
+                            <a class="" href="/room/index">房间信息</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="/roomtype/index">类型管理</a>
+                        </li>
+
+                    </ul>
                 </li>
-                <li> <i class="icon icon-archive"></i>员工
-                    <a href="/employee/index"><i class="icon icon-archive"></i>员工管理</a>
-                    <a href="#"><i class="icon icon-archive"></i>权限管理</a>
+
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>员工管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="conceal">
+                            <a class="" href="/employee/index">员工信息</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="#">权限管理</a>
+                        </li>
+                    </ul>
                 </li>
-                <li> <i class="icon icon-archive"></i>客户
-                    <a href="/unsettled/index"><i class="icon icon-archive"></i>入住信息</a>
-                    <a href="/customer/index"><i class="icon icon-archive"></i>客户信息</a>
+
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>客户管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="conceal">
+                            <a class="" href="/unsettled/index">入住信息</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="/customer/index">客户信息</a>
+                        </li>
+                    </ul>
                 </li>
-                <li> <i class="icon icon-archive"></i>财务管理
-                    <a href="/consume/index"><i class="icon icon-archive"></i>顾客消费记录</a>
-                    <a href="#"><i class="icon icon-archive"></i>财务统计</a>
+
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>财务管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="conceal">
+                            <a class="" href="/consume/index">顾客消费记录</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="#">财务统计</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu conceal">
+                    <a href="javascript:;" class="">
+                        <span>基础资料管理</span><span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="conceal">
+                            <a class="" href="/admin/user/list">用户管理</a>
+                        </li>
+                        <li class="conceal">
+                            <a class="" href="/admin/role/list">角色管理</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

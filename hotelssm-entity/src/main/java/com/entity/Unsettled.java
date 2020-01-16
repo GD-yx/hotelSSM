@@ -16,7 +16,7 @@ public class Unsettled {
     private String roomtype;
     private String name;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date checkdate;
 
     private Double consume;

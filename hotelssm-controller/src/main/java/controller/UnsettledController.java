@@ -2,10 +2,8 @@ package controller;
 
 import com.entity.*;
 import com.github.pagehelper.PageInfo;
-import com.service.CustomerService;
-import com.service.RoomService;
-import com.service.SettledService;
-import com.service.UnsettledService;
+import com.service.*;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,9 +33,33 @@ public class UnsettledController {
     @Autowired
     private RoomService roomService;
 
+    @Autowired
+    private ConsumeService consumeService;
+
+
     @RequestMapping("/index")
     public String index(){
         return "unsettled/list";
+    }
+
+    @RequestMapping("/index2")
+    public ModelAndView index2(Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        Consume consume1 = consumeService.getById(id);
+        modelAndView.addObject("consume1",consume1);
+        modelAndView.setViewName("/unsettled/list");
+        return modelAndView;
+    }
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public ResponseVo update(@Valid Unsettled unsettled,
+                             BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return ResponseVo.newBuilder().code("500").message("修改失败！").build();
+        }
+        service.update(unsettled);
+        return ResponseVo.newBuilder().code("200").message("修改成功！").build();
     }
 
     /**查询未结账*/
@@ -46,6 +68,7 @@ public class UnsettledController {
     public PageInfo<Unsettled> list (@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                      @RequestParam(value = "pageSize",defaultValue = "4") int pageSize){
         List<Unsettled> unsettleds = service.getAll(pageNum,pageSize);
+        //System.out.println(money);
         PageInfo<Unsettled> unsettledPageInfo = new PageInfo<>(unsettleds,3);
         return unsettledPageInfo;
     }
@@ -89,19 +112,21 @@ public class UnsettledController {
     /**消费*/
     @RequestMapping("/consume")
     @ResponseBody
-    public ModelAndView consume(int id,@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
+    public ModelAndView consume(@Param("name") String name, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                 @RequestParam(value = "pageSize",defaultValue = "4") int pageSize){
         ModelAndView modelAndView = new ModelAndView();
-        Unsettled unsettled = service.getById(id);
+        Unsettled unsettled = service.getByName(name);
         modelAndView.addObject("unsettled",unsettled);
         modelAndView.setViewName("/unsettled/consume");
         return modelAndView;
     }
-
-   /* @PostMapping("/consumecommodity")
+   /* @RequestMapping("/consume")
     @ResponseBody
-    public ModelAndView consumecommodity(){
+    public ModelAndView consume(@Param("id") Integer id, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
+                                @RequestParam(value = "pageSize",defaultValue = "4") int pageSize){
         ModelAndView modelAndView = new ModelAndView();
+        Unsettled unsettled = service.getById(id);
+        modelAndView.addObject("unsettled",unsettled);
         modelAndView.setViewName("/unsettled/consume");
         return modelAndView;
     }*/
@@ -109,7 +134,7 @@ public class UnsettledController {
     /**登记顾客信息，入住*/
     @GetMapping("/register")
     @ResponseBody
-    public ModelAndView register(int id){
+    public ModelAndView register(Integer id){
         ModelAndView modelAndView = new ModelAndView();
         Unsettled unsettled = service.getById(id);
         modelAndView.addObject("unsetteld",unsettled);

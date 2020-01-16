@@ -48,4 +48,11 @@ public class UnsettledServiceImpl implements UnsettledService {
     public void delete(int id) {
         dao.delete(id);
     }
+
+    @Override
+    public Unsettled getByName(String name) {
+        return dao.getByName(name);
+    }
+
+
 }

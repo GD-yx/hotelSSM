@@ -18,12 +18,7 @@ public class Customer {
     private String address;
     private String idcard;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date checkdate;
 
-   /* public String getTime(){
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-        String sDate=sdf.format(this.checkdate);
-        return sDate;
-    }*/
 }

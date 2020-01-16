@@ -9,7 +9,7 @@
        https://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <context:component-scan base-package="controller,advice"/>
+    <context:component-scan base-package="controller,advice,interceptor"/>
     <mvc:annotation-driven conversion-service="conversionService"/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PrivilegeDao">
+
+    <delete id="deleteRolePrivilege">
+        delete
+        from roleprivilege
+        where roleid = #{roleId}
+    </delete>
+
+    <insert id="insertRolePrivilege">
+        <foreach collection="privileges" item="privilege" separator=";">
+            insert into roleprivilege(roleid,privilegeid) values(#{roleId},#{privilege.id})
+        </foreach>
+
+    </insert>
+</mapper>

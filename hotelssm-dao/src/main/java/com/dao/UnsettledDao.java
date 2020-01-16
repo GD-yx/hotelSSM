@@ -17,4 +17,5 @@ public interface UnsettledDao {
     Unsettled getByRoomid(int roomid);
     void update(Unsettled unsettled);
     void delete(int id);
+    Unsettled getByName(String name);
 }

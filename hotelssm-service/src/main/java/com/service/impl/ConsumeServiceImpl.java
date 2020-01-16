@@ -33,6 +33,16 @@ public class ConsumeServiceImpl implements ConsumeService {
         return dao.getByRoomId(pageNum, pageSize, roomid);
     }
 
+    @Override
+    public List<Consume> getByName(int pageNum, int pageSize, String name) {
+        return dao.getByName(pageNum, pageSize, name);
+    }
+
+    @Override
+    public Consume getById(int id) {
+        return dao.getById(id);
+    }
+
 
     @Override
     public void delete(int id) {
