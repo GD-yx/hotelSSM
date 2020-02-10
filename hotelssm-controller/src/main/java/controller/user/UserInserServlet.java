@@ -24,6 +24,7 @@ public class UserInserServlet  {
 
 
 		userService.addUser(user);
+		System.out.println(user);
 		User u = userService.findUser(userName,password);
 		userService.updateUserRole(u, roleId);
 		

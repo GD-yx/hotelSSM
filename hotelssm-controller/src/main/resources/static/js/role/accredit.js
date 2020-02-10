@@ -42,8 +42,8 @@ $(".accredit").on("click", function () {
             type: "post",
             traditional: true,
             data: {
-                "privilege_id": zTreeOnClick(),
-                "role_id": roleId
+                "privilegeid": zTreeOnClick(),
+                "roleid": roleId
             },
             success: function (result) {
                 if (result == true) {

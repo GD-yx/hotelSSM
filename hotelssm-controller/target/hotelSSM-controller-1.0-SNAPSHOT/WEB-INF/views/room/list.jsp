@@ -27,112 +27,15 @@
         <div class="col-md-8 column">
             <h1 class="pull-right username">当前用户：${username}</h1>
         </div>
-
+        <div>
+            <a href="/home">返回首页</a>
+        </div>
     </div>
     <!-- 第二行 -->
     <div class="row clearfix">
-        <div class="col-md-2 column">
-            <ul class="nav nav-pills nav-stacked">
-                <li class="sub-menu  conceal">
-                    <a class="" href="#">
-                        <span>商品管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class=" conceal">
-                            <a href="/commodity/index">商品信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/commoditytype/index">类型管理</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>房间管理</span> <span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class=" conceal">
-                            <a class="" href="/room/index">房间信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/roomtype/index">类型管理</a>
-                        </li>
 
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>员工管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/employee/index">员工信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="#">权限管理</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>客户管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/unsettled/index">入住信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/customer/index">客户信息</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>财务管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/consume/index">顾客消费记录</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="#">财务统计</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>基础资料管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/admin/user/list">用户管理</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/admin/role/list">角色管理</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
         <div class="col-md-9 column">
-            <%--搜索--%>
-            <%-- <div class="input-group" style="margin-bottom: 20px">
-                 <div class="input-control search-box search-box-circle has-icon-left has-icon-right search-example"
-                      id="searchboxExample">
-                     <input id="inputSearchExample3" type="search" style="width: 200px;"
-                            class="form-control search-input" placeholder="按名字搜索">
-                     <label for="inputSearchExample3" class="input-control-icon-left search-icon"
-                            style="top: 8px;"><i class="icon icon-search"></i></label>
-                     <span class="input-group-btn">
-                                     <button class="btn btn-primary" type="button" @click="searchName()">搜索</button>
-                             </span>
-                 </div>
-             </div>--%>
-            <%--显示--%>
+
             <div class="col-md-10 column" id="content">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -161,17 +64,6 @@
             </div>
         </div>
 
-    </div>
-    <!-- 第三行 -->
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <!-- 绝对水平居中的方法 -->
-            <div class="center-block" style="width:400px;
-			max-width:100%;
-			background-color:#ccc;">
-                <h3>没有版权，想怎样就怎样！</h3>
-            </div>
-        </div>
     </div>
 
 </div>

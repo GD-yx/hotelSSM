@@ -1,73 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 南八
-  Date: 2019/12/9
-  Time: 11:08
-  To change this template use File | Settings | File Templates.
---%>
-<%--
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <title>客户信息</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="/static/js/jquery-3.3.1.min.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.js"></script>
-    <link href="/static/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
-</head>
-<body>
-<div>
-   &lt;%&ndash; <a href="/customer/add">新增</a>&ndash;%&gt;
-
-</div>
-<table class="table">
-    <tr>
-        <th>编号</th>
-        <th>姓名</th>
-        <th>性别</th>
-        <th>联系方式</th>
-        <th>地址</th>
-        <th>身份证号码</th>
-        <th>入住日期</th>
-        <th>房间号</th>
-        <th>操作</th>
-    </tr>
-    <tbody>
-    <c:forEach items="${customers.list}" var="c">
-        <tr>
-
-            <td>${c.id}</td>
-            <td>${c.name}</td>
-            <td>${c.gender}</td>
-            <td>${c.phonenumber}</td>
-            <td>${c.address}</td>
-            <td>${c.idcard}</td>
-            <td>${c.checkdate}</td>
-            <td>${c.croomid}</td>
-            <th>
-                <a href="/customer/edit?id=${c.id}">修改</a>
-                <a href="/customer/delete?id=${c.id}">删除</a>
-            </th>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
-
-<ul class="pagination">
-    <li><a href="/customer/list?pageNum=1">首页</a></li>
-    <li><a href="/customer/list?pageNum=${customers.prePage}">上一页</a></li>
-    <c:forEach items="${customers.navigatepageNums}" var="p">
-        <li><a href="/customer/list?pageNum=${p}">${p}</a></li>
-    </c:forEach>
-    <li><a href="/customer/list?pageNum=${customers.nextPage}">下一页</a></li>
-    <li><a href="/customer/list?pageNum=${customers.pages}">尾页</a></li>
-</ul>
-<a href="/index">返回主界面</a>
-</body>
-</html>
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -89,114 +19,17 @@
         <div class="col-md-8 column">
             <h1 class="pull-right username">当前用户：${username}</h1>
         </div>
-
+        <div>
+            <a href="/home">返回首页</a>
+        </div>
     </div>
     <!-- 第二行 -->
     <div class="row clearfix">
-        <div class="col-md-2 column">
-            <ul class="nav nav-pills nav-stacked">
-                <li class="sub-menu  conceal">
-                    <a class="" href="#">
-                        <span>商品管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class=" conceal">
-                            <a href="/commodity/index">商品信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/commoditytype/index">类型管理</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>房间管理</span> <span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class=" conceal">
-                            <a class="" href="/room/index">房间信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/roomtype/index">类型管理</a>
-                        </li>
 
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>员工管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/employee/index">员工信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="#">权限管理</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>客户管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/unsettled/index">入住信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/customer/index">客户信息</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>财务管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/consume/index">顾客消费记录</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="#">财务统计</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>基础资料管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/admin/user/list">用户管理</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/admin/role/list">角色管理</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
         <div class="col-md-9 column">
-            <%--搜索--%>
-            <%-- <div class="input-group" style="margin-bottom: 20px">
-                 <div class="input-control search-box search-box-circle has-icon-left has-icon-right search-example"
-                      id="searchboxExample">
-                     <input id="inputSearchExample3" type="search" style="width: 200px;"
-                            class="form-control search-input" placeholder="按名字搜索">
-                     <label for="inputSearchExample3" class="input-control-icon-left search-icon"
-                            style="top: 8px;"><i class="icon icon-search"></i></label>
-                     <span class="input-group-btn">
-                                     <button class="btn btn-primary" type="button" @click="searchName()">搜索</button>
-                             </span>
-                 </div>
-             </div>--%>
-            <%--显示--%>
+
             <div class="col-md-10 column" id="content">
-                <table class="table table-bordered table-hover" style="width: 1000px">
+                <table class="table table-bordered table-hover" style="width: 800px">
                     <thead>
                     <tr>
                         <th>姓名</th>
@@ -225,6 +58,7 @@
         </div>
 
     </div>
+
 </div>
 
 
@@ -294,7 +128,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
@@ -330,9 +163,9 @@
                         customers += "<td>"+customer.checkdate+"</td>";
                         customers+="<td><button  id="+customer.id+" class='delete btn btn-danger' >删除</button>";
                         customers+="<button  id="+customer.id+" name="+customer.name+" " +
-                         "gender="+customer.gender+" phonenumber="+customer.phonenumber+" " +
-                         "address="+customer.address+" idcard="+customer.idcard+" " +
-                         "checkdate="+customer.checkdate+" class='update btn btn-info' >编辑</button></td>";
+                            "gender="+customer.gender+" phonenumber="+customer.phonenumber+" " +
+                            "address="+customer.address+" idcard="+customer.idcard+" " +
+                            "checkdate="+customer.checkdate+" class='update btn btn-info' >编辑</button></td>";
                         customers+="</tr>";
                     })//customer
 
@@ -415,7 +248,7 @@
             $("#address").val("");
             $("#idcard").val("");
             $("#checkdate").val("");
-                $("#myModal").modal('show');
+            $("#myModal").modal('show');
         });
         $("#save").click(function () {
             var op  = $("#save").data("op");
@@ -425,8 +258,8 @@
             $("#myModal").modal('hide')
             var obj =
                 {id:$("#id").val(),name:$("#name").val(),gender:$("#gender").val(),
-                phonenumber:$("#phonenumber").val(), address:$("#address").val(),
-                idcard:$("#idcard").val(),checkdate:$("#checkdate").val()};
+                    phonenumber:$("#phonenumber").val(), address:$("#address").val(),
+                    idcard:$("#idcard").val(),checkdate:$("#checkdate").val()};
             console.log(obj);
             $.post("/customer/insert",obj,function () {
                 $("tbody").empty();
@@ -438,3 +271,4 @@
 
 </script>
 </html>
+

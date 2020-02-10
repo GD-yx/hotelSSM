@@ -32,12 +32,12 @@ public class RolePrivilegeInsertServlet  {
 
 	@RequestMapping("/admin/role-privilege/inser")
     @ResponseBody
-	protected Object service(String[] privilege_id,String role_id) {
+	protected Object service(String[] privilegeid,String roleid) {
 
-		Role role = roleService.findRole(role_id);
+		Role role = roleService.findRole(roleid);
 
 		List<Menu> list = new ArrayList<Menu>();
-		for(String pid:privilege_id) {
+		for(String pid:privilegeid) {
 			Menu privilege = menuService.findMenuById(pid);
 			list.add(privilege);
 		}

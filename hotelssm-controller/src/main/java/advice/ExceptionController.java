@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @ControllerAdvice
 public class ExceptionController {
-   /* @ExceptionHandler(RuntimeException.class)
+    @ExceptionHandler(RuntimeException.class)
     public String handleRuntime(){
         return "error";
-    }*/
+    }
 }

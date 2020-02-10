@@ -1,61 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 南八
-  Date: 2019/12/3
-  Time: 14:55
-  To change this template use File | Settings | File Templates.
---%>
-<%--
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <title>房间类型管理</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="/static/js/jquery-3.3.1.min.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.js"></script>
-    <link href="/static/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
-</head>
-<body>
-<div>
-    <a href="/roomtype/add">新增</a>
-    &lt;%&ndash;<a href="#">修改</a>
-    <a  href="#" id="delete">删除</a>&ndash;%&gt;
-</div>
-<table class="table">
-    <tr>
-        <th>主键</th>
-        <th>房间类型</th>
-        <th>操作</th>
-    </tr>
-    <tbody>
-    <c:forEach items="${roomtypes.list}" var="t">
-        <tr>
-            <td>${t.rtid}</td>
-            <td>${t.rtname}</td>
-            <td>
-                <a href="/roomtype/edit?id=${t.rtid}">修改</a>
-                <a href="/roomtype/delete?id=${t.rtid}" >删除</a>
-            </td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
-
-<ul class="pagination">
-    <li><a href="/roomtype//list?pageNum=1">首页</a></li>
-    <li><a href="/roomtype/list?pageNum=${roomtypes.prePage}">上一页</a></li>
-    <c:forEach items="${roomtypes.navigatepageNums}" var="p">
-        <li><a href="/roomtype/list?pageNum=${p}">${p}</a></li>
-    </c:forEach>
-    <li><a href="/roomtype/list?pageNum=${roomtypes.nextPage}">下一页</a></li>
-    <li><a href="/roomtype/list?pageNum=${roomtypes.pages}">尾页</a></li>
-</ul>
-<a href="/index">返回主界面</a>
-</body>
-</html>
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -67,7 +9,6 @@
     <link href="/static/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-
 <div class="container" id="app">
     <!-- 第一行 -->
     <div class="row clearfix">
@@ -77,112 +18,15 @@
         <div class="col-md-8 column">
             <h1 class="pull-right username">当前用户：${username}</h1>
         </div>
-
+        <div>
+            <a href="/home">返回首页</a>
+        </div>
     </div>
     <!-- 第二行 -->
     <div class="row clearfix">
-        <div class="col-md-2 column">
-            <ul class="nav nav-pills nav-stacked">
-                <li class="sub-menu  conceal">
-                    <a class="" href="#">
-                        <span>商品管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class=" conceal">
-                            <a href="/commodity/index">商品信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/commoditytype/index">类型管理</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>房间管理</span> <span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class=" conceal">
-                            <a class="" href="/room/index">房间信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/roomtype/index">类型管理</a>
-                        </li>
 
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>员工管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/employee/index">员工信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="#">权限管理</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>客户管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/unsettled/index">入住信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/customer/index">客户信息</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>财务管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/consume/index">顾客消费记录</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="#">财务统计</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>基础资料管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/admin/user/list">用户管理</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/admin/role/list">角色管理</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
         <div class="col-md-9 column">
-            <%--搜索--%>
-            <%-- <div class="input-group" style="margin-bottom: 20px">
-                 <div class="input-control search-box search-box-circle has-icon-left has-icon-right search-example"
-                      id="searchboxExample">
-                     <input id="inputSearchExample3" type="search" style="width: 200px;"
-                            class="form-control search-input" placeholder="按名字搜索">
-                     <label for="inputSearchExample3" class="input-control-icon-left search-icon"
-                            style="top: 8px;"><i class="icon icon-search"></i></label>
-                     <span class="input-group-btn">
-                                     <button class="btn btn-primary" type="button" @click="searchName()">搜索</button>
-                             </span>
-                 </div>
-             </div>--%>
-            <%--显示--%>
+
             <div class="col-md-10 column" id="content">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -207,17 +51,6 @@
             </div>
         </div>
 
-    </div>
-    <!-- 第三行 -->
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <!-- 绝对水平居中的方法 -->
-            <div class="center-block" style="width:400px;
-			max-width:100%;
-			background-color:#ccc;">
-                <h3>没有版权，想怎样就怎样！</h3>
-            </div>
-        </div>
     </div>
 
 </div>
@@ -265,8 +98,6 @@
     </div>
 </div>
 </body>
-<%--<script src="/static/bootstrap/js/commoditytype/list.js"></script>--%>
-
 <script type="text/javascript">
     $(function(){
         $(document).ajaxError(function(){

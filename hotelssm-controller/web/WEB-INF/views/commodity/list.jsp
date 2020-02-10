@@ -1,76 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
   User: 南八
-  Date: 2019/12/4
-  Time: 10:42
+  Date: 2020/1/23
+  Time: 17:37
   To change this template use File | Settings | File Templates.
 --%>
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>房间管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.js"></script>
     <link href="/static/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<div>
-    <a href="/commodity/add">新增</a>
-</div>
-<table class="table">
-    <tr>
-        <th>商品编号</th>
-        <th>商品名称</th>
-        <th>商品类型</th>
-        <th>计量单位</th>
-        <th>商品价格</th>
-        <th>操作</th>
-    </tr>
-    <tbody>
-    <c:forEach items="${commodities.list}" var="c">
-        <tr>
-
-            <td>${c.cid}</td>
-            <td>${c.cname}</td>
-            <td>${c.cotype}</td>
-            <td>${c.cunit}</td>
-            <td>${c.cprice}</td>
-            <th>
-                <a href="/commodity/edit?id=${c.cid}">修改</a>
-                <a href="/commodity/delete?id=${c.cid}">删除</a>
-            </th>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
-
-<ul class="pagination">
-    <li><a href="/commodity/list?pageNum=1">首页</a></li>
-    <li><a href="/commodity/list?pageNum=${commodities.prePage}">上一页</a></li>
-    <c:forEach items="${commodities.navigatepageNums}" var="p">
-        <li><a href="/commodity/list?pageNum=${p}">${p}</a></li>
-    </c:forEach>
-    <li><a href="/commodity/list?pageNum=${commodities.nextPage}">下一页</a></li>
-    <li><a href="/commodity/list?pageNum=${commodities.pages}">尾页</a></li>
-</ul>
-<a href="/index">返回主界面</a>
-</body>
-</html>--%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <title>商品管理</title>
-    <script src="/static/bootstrap/js/jquery-3.3.1.min.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.js"></script>
-    <script src="/static/bootstrap/js/vue.js"></script>
-    <link href="/static/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
-</head>
-<body>
-
 <div class="container" id="app">
     <!-- 第一行 -->
     <div class="row clearfix">
@@ -80,127 +25,15 @@
         <div class="col-md-8 column">
             <h1 class="pull-right username">当前用户：${username}</h1>
         </div>
-
+        <div>
+            <a href="/home">返回首页</a>
+        </div>
     </div>
+    <!-- 第二行 -->
+    <div class="row clearfix">
 
-<section id="container" class="">
-    <header class="header white-bg">
-        <a href="#" class="logo">酒店 <span>管理</span></a>
-    </header>
-
-    <div id="sidebar" class="nav-collapse">
-        <ul class="sidebar-menu">
-            <li class="active">
-                <a class="" href="/home">
-                    <span>首页</span>
-                </a>
-            </li>
-            <li class="sub-menu  conceal">
-                <a class="" href="#">
-                    <span>商品管理</span><span class="arrow"></span>
-                </a>
-                <ul class="sub">
-                    <li class=" conceal">
-                        <a href="/commodity/index">商品信息</a>
-                    </li>
-                    <li class="conceal">
-                        <a class="" href="/commoditytype/index">类型管理</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="sub-menu conceal">
-                <a href="javascript:;" class="">
-                    <span>房间管理</span> <span class="arrow"></span>
-                </a>
-                <ul class="sub">
-                    <li class=" conceal">
-                        <a class="" href="/room/index">房间信息</a>
-                    </li>
-                    <li class="conceal">
-                        <a class="" href="/roomtype/index">类型管理</a>
-                    </li>
-
-                </ul>
-            </li>
-
-            <li class="sub-menu conceal">
-                <a href="javascript:;" class="">
-                    <span>员工管理</span><span class="arrow"></span>
-                </a>
-                <ul class="sub">
-                    <li class="conceal">
-                        <a class="" href="/employee/index">员工信息</a>
-                    </li>
-                    <li class="conceal">
-                        <a class="" href="#">权限管理</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="sub-menu conceal">
-                <a href="javascript:;" class="">
-                    <span>客户管理</span><span class="arrow"></span>
-                </a>
-                <ul class="sub">
-                    <li class="conceal">
-                        <a class="" href="/unsettled/index">入住信息</a>
-                    </li>
-                    <li class="conceal">
-                        <a class="" href="/customer/index">客户信息</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="sub-menu conceal">
-                <a href="javascript:;" class="">
-                    <span>财务管理</span><span class="arrow"></span>
-                </a>
-                <ul class="sub">
-                    <li class="conceal">
-                        <a class="" href="/consume/index">顾客消费记录</a>
-                    </li>
-                    <li class="conceal">
-                        <a class="" href="#">财务统计</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="sub-menu conceal">
-                <a href="javascript:;" class="">
-                    <span>基础资料管理</span><span class="arrow"></span>
-                </a>
-                <ul class="sub">
-                    <li class="conceal">
-                        <a class="" href="/admin/user/list">用户管理</a>
-                    </li>
-                    <li class="conceal">
-                        <a class="" href="/admin/role/list">角色管理</a>
-                    </li>
-                </ul>
-            </li>
-
-
-
-        </ul>
-    </div>
-</section>
-<section id="main-content">
-    <section class="wrapper">
         <div class="col-md-9 column">
-            <%--搜索--%>
-            <%-- <div class="input-group" style="margin-bottom: 20px">
-                 <div class="input-control search-box search-box-circle has-icon-left has-icon-right search-example"
-                      id="searchboxExample">
-                     <input id="inputSearchExample3" type="search" style="width: 200px;"
-                            class="form-control search-input" placeholder="按名字搜索">
-                     <label for="inputSearchExample3" class="input-control-icon-left search-icon"
-                            style="top: 8px;"><i class="icon icon-search"></i></label>
-                     <span class="input-group-btn">
-                                     <button class="btn btn-primary" type="button" @click="searchName()">搜索</button>
-                             </span>
-                 </div>
-             </div>--%>
-            <%--显示--%>
+
             <div class="col-md-10 column" id="content">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -227,12 +60,11 @@
                 <button href="#" class="btn-info add">新增</button>
             </div>
         </div>
-    </section>
-</section>
-<input type="hidden" id="userId" value="${user.id }">
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/common-scripts.js"></script>
-<script type="text/javascript" src="/static/js/menu.js"></script>
+
+    </div>
+
+</div>
+
 
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -302,7 +134,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
@@ -312,7 +143,6 @@
         $(document).ajaxError(function(){
             alert("一个错误发生");
         });
-
         getAll(1,pageSize);
         var page = {};
         var pageSize=4;
@@ -335,9 +165,7 @@
                         commodities+="<td><button  cid="+commodity.cid+"  class='delete btn btn-danger' >删除</button>";
                         commodities+="<button  cid="+commodity.cid+" cname="+commodity.cname+" coid="+commodity.coid+" cunit="+commodity.cunit+" cprice="+commodity.cprice+" class='update btn btn-info' >编辑</button></td>";
                         commodities+="</tr>";
-
                     })//commodity
-
                     //分页
                     $("#navigatepageNums").empty();
                     $.each(pageInfo.navigatepageNums,function (index,num) {
@@ -349,14 +177,12 @@
                     $("#prev").data("value",pageInfo.prePage);
                     $("#next").data("value",pageInfo.nextPage);
                     $("#last").data("value",pageInfo.pages);
-
                     //页码
                     $(".pageNumber").on("click",function () {
                         getAll($(this).data("value"),pageSize);
                     })
                     page=pageInfo;
                     $("#tbody").html(commodities);
-
                     //删除
                     $(".delete").on('click',function (e) {
                         e.preventDefault();
@@ -367,7 +193,6 @@
                             });
                         }
                     })
-
                     //修改
                     $(".update").on('click',function () {
                         $("#save").data("op","update");
@@ -379,7 +204,6 @@
                         $("#cid").prop("disabled","disabled");
                         $("#myModal").modal('show');
                     });
-
                     $("#save").click(function(){
                         var op = $("#save").data("op");
                         if(op != "update"){
@@ -393,15 +217,10 @@
                             $("tbody").empty();
                             getAll(1,pageSize);
                         });
-
                     });
-
                 }
             })
-
         }
-
-
         //添加
         $("#content").on("click",".add",function(){
             $("#save").data("op","insert");
@@ -412,7 +231,6 @@
             $("#cunit").val("");
             $("#cprice").val("");
             $("#myModal").modal('show');
-
         });
         $("#save").click(function(){
             var op = $("#save").data("op");
@@ -421,7 +239,7 @@
             }
             $("#myModal").modal('hide');
             var obj = {cid:$("#cid").val(),cname:$("#cname").val(),
-            coid:$("#coid").val(),cunit:$("#cunit").val(),cprice:$("#cprice").val()};
+                coid:$("#coid").val(),cunit:$("#cunit").val(),cprice:$("#cprice").val()};
             console.log(obj);
             $.post("/commodity/insert",obj,function(){
                 $("tbody").empty();
@@ -429,8 +247,5 @@
             });
         });
     });
-
 </script>
 </html>
-
-

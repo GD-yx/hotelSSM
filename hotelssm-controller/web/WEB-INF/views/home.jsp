@@ -61,9 +61,6 @@
                     <li class="conceal">
                         <a class="" href="/employee/index">员工信息</a>
                     </li>
-                    <li class="conceal">
-                        <a class="" href="#">权限管理</a>
-                    </li>
                 </ul>
             </li>
 

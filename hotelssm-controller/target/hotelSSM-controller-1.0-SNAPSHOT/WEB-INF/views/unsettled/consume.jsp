@@ -33,96 +33,21 @@
 <body>
 
 <div class="container" id="app">
+    <!-- 第一行 -->
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <h1>后台管理</h1>
+        </div>
+        <div class="col-md-8 column">
+            <h1 class="pull-right username">当前用户：${username}</h1>
+        </div>
+        <div>
+            <a href="/home">返回首页</a>
+        </div>
+    </div>
     <!-- 第二行 -->
     <div class="row clearfix">
-        <div class="col-md-2 column">
-            <ul class="nav nav-pills nav-stacked">
-                <li class="sub-menu  conceal">
-                    <a class="" href="#">
-                        <span>商品管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class=" conceal">
-                            <a href="/commodity/index">商品信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/commoditytype/index">类型管理</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>房间管理</span> <span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class=" conceal">
-                            <a class="" href="/room/index">房间信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/roomtype/index">类型管理</a>
-                        </li>
 
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>员工管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/employee/index">员工信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="#">权限管理</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>客户管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/unsettled/index">入住信息</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/customer/index">客户信息</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>财务管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/consume/index">顾客消费记录</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="#">财务统计</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu conceal">
-                    <a href="javascript:;" class="">
-                        <span>基础资料管理</span><span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="conceal">
-                            <a class="" href="/admin/user/list">用户管理</a>
-                        </li>
-                        <li class="conceal">
-                            <a class="" href="/admin/role/list">角色管理</a>
-                        </li>
-                    </ul>
-                </li>
-
-            </ul>
-        </div>
         <div class="col-md-9 column">
             <div class="col-md-10 column" id="content">
                 <div style="margin-top: 20px">
@@ -222,7 +147,7 @@
         var name = "${unsettled.name}";
         var unsettledid = "${unsettled.id}";
 
-        alert(roomid+"啦啦啦啦啦"+name+"adfa"+unsettledid);
+        //alert(roomid+"啦啦啦啦啦"+name+"adfa"+unsettledid);
 
         //按房间号查询该顾客所有的消费
         function getAll2(pageNum,pageSize,roomid){
@@ -245,7 +170,6 @@
                         consumes+="<td>"+consume.money+"</td>";
                         consumes+="<td>"+consume.consumedate+"</td>";
                         consumes+="<td><button  id="+consume.id+"  class='delete btn btn-danger' >删除</button>";
-                        //consumes+="<a href='/unsettled/index2?id="+consume.id+"'><button id="+consume.id+" money1="+consume.money+"  class='money btn btn-danger' >money</button></a></td>";
                         consumes+="</tr>";
 
                     })//consumes
@@ -279,14 +203,11 @@
                             });
                         }
                     })
-
-                    //删除
+                    /*
                     $(".money").click(function () {
                         var money1 =  $(this).attr("money1");
                         alert(money1);
-                    })
-
-
+                    })*/
                 }
             })
 
@@ -354,10 +275,10 @@
 
         }
         getAllByName(1,pageSize,name);
-
-
-
-
+        $(".fh").click(function () {
+            //alert("返回");
+            window.history.back(-1);
+        })
 
 
         //模态框里查询所有商品
@@ -411,19 +332,21 @@
                        var consumecprice = $(this).attr("cprice");
                        var consumenumber = $(this).parent().parent().find(".number").val();
                        var money = consumecprice * consumenumber;
-                       alert(unsettledid+"房间号："+consumeroomid+"  姓名："+consumename+"   商品名称："+consumecname+"   单位："+consumecunit+"   单价："+consumecprice+"   数量："+consumenumber+"   总计："+money);
+                       //alert(unsettledid+"房间号："+consumeroomid+"  姓名："+consumename+"   商品名称："+consumecname+"   单位："+consumecunit+"   单价："+consumecprice+"   数量："+consumenumber+"   总计："+money);
                        $("#myModal").modal('hide');
                        var obj = {id:unsettledid,roomid:$(this).attr("roomid"),name:$(this).attr("name"),cname:$(this).attr("cname"),
                            cunit:$(this).attr("cunit"),cprice:$(this).attr("cprice"),number:$(this).parent().parent().find(".number").val(),
                            money:$(this).attr("cprice")*$(this).parent().parent().find(".number").val()};
                        console.log(obj);
                        $.post("/consume/insert",obj,function(){
-                           $("#tbody").empty();
+                           //$("#tbody").empty();
                            //getAll2(1,pageSize,roomid);
-                           getAllByName(1,pageSize,name);
-                           //window.location.href="/consume/getByName?name="+encodeURI(name);
-                           //window.location.href="unsettled/consume.jsp?name="+name;
+                           alert("返回1");
+                           //window.history.back(-1);
                        });
+                       //alert("返回");
+                       //getAll2(1,pageSize,roomid);
+                       getAllByName(1,pageSize,name)
                    })
 
                 }
