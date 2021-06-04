@@ -35,7 +35,7 @@
         <dbutil-version>1.7</dbutil-version>
         <mybatis.spring.version>2.0.2</mybatis.spring.version>
         <aspectj.version>1.9.4</aspectj.version>
-        <hibernate.validator.version>6.1.0.Final</hibernate.validator.version>
+        <hibernate.validator.version>6.1.5.Final</hibernate.validator.version>
         <commons.fileupload.version>1.4</commons.fileupload.version>
         <lombok.version>1.18.10</lombok.version>
     </properties>
